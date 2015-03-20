@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Dictionary.h"
+#import "Pagina.h"
 
 @interface LetraViewController : UIViewController
 
 @property (nonatomic) int pagina;
+@property RLMRealm *realm;
 
 -(void)prepararPagina:(int) pagina;
 @end
