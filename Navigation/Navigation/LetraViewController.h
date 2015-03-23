@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Dictionary.h"
 #import "Pagina.h"
+#import <AVFoundation/AVFoundation.h>
+
 
 @interface LetraViewController : UIViewController
 

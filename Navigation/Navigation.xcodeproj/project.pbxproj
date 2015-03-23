@@ -26,6 +26,7 @@
 		4D3D144D1ABB3F4D0013E58E /* tabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D144C1ABB3F4D0013E58E /* tabBarViewController.m */; };
 		4D3D14531ABB413E0013E58E /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D14521ABB413E0013E58E /* TableViewController.m */; };
 		4DD149381AB75B8F00FA3D0D /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD149371AB75B8F00FA3D0D /* Dictionary.m */; };
+		4DE06F321ABF6B91003672BB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE06F311ABF6B91003672BB /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		4D3D14521ABB413E0013E58E /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		4DD149361AB75B8F00FA3D0D /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
 		4DD149371AB75B8F00FA3D0D /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
+		4DE06F311ABF6B91003672BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE06F321ABF6B91003672BB /* AVFoundation.framework in Frameworks */,
 				4D0C806A1ABC9522004A59D3 /* libc++.dylib in Frameworks */,
 				4D0C80681ABC94F2004A59D3 /* Realm.framework in Frameworks */,
 				27156F4F18B76AF50053A99C /* CoreGraphics.framework in Frameworks */,
@@ -119,6 +122,7 @@
 		27156F4B18B76AF50053A99C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DE06F311ABF6B91003672BB /* AVFoundation.framework */,
 				4D0C80691ABC9522004A59D3 /* libc++.dylib */,
 				4D0C80671ABC94F2004A59D3 /* Realm.framework */,
 				27156F4C18B76AF50053A99C /* Foundation.framework */,
