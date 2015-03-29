@@ -66,8 +66,8 @@
 		4D3D144C1ABB3F4D0013E58E /* tabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tabBarViewController.m; sourceTree = "<group>"; };
 		4D3D14511ABB413E0013E58E /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		4D3D14521ABB413E0013E58E /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		4DD149361AB75B8F00FA3D0D /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
-		4DD149371AB75B8F00FA3D0D /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
+		4DD149361AB75B8F00FA3D0D /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dictionary.h; path = ../Dictionary.h; sourceTree = "<group>"; };
+		4DD149371AB75B8F00FA3D0D /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dictionary.m; path = ../Dictionary.m; sourceTree = "<group>"; };
 		4DE06F311ABF6B91003672BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -101,8 +101,6 @@
 		27156F4018B76AF50053A99C = {
 			isa = PBXGroup;
 			children = (
-				4DD149361AB75B8F00FA3D0D /* Dictionary.h */,
-				4DD149371AB75B8F00FA3D0D /* Dictionary.m */,
 				27156F5218B76AF50053A99C /* Navigation */,
 				27156F6B18B76AF50053A99C /* NavigationTests */,
 				27156F4B18B76AF50053A99C /* Frameworks */,
@@ -138,8 +136,8 @@
 			children = (
 				27156F5B18B76AF50053A99C /* MackenzieAppDelegate.h */,
 				27156F5C18B76AF50053A99C /* MackenzieAppDelegate.m */,
-				27156F5E18B76AF50053A99C /* Images.xcassets */,
-				27156F5318B76AF50053A99C /* Supporting Files */,
+				4DD149361AB75B8F00FA3D0D /* Dictionary.h */,
+				4DD149371AB75B8F00FA3D0D /* Dictionary.m */,
 				4D3D14481AB8A9910013E58E /* LetraViewController.h */,
 				4D3D14491AB8A9910013E58E /* LetraViewController.m */,
 				4D3D144B1ABB3F4D0013E58E /* tabBarViewController.h */,
@@ -148,6 +146,8 @@
 				4D3D14521ABB413E0013E58E /* TableViewController.m */,
 				4D0C806B1ABC95A6004A59D3 /* Pagina.h */,
 				4D0C806C1ABC95A6004A59D3 /* Pagina.m */,
+				27156F5E18B76AF50053A99C /* Images.xcassets */,
+				27156F5318B76AF50053A99C /* Supporting Files */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";

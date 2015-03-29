@@ -7,22 +7,22 @@
 //
 
 #import "MackenzieAppDelegate.h"
-#import "LetraAViewController.h"
+#import "tabBarViewController.h"
 
 @implementation MackenzieAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    LetraAViewController *viewController = [[LetraAViewController alloc]
-                                           initWithNibName:nil
-                                           bundle:nil];
     
+    tabBarViewController *tabBar = [[tabBarViewController alloc]init];
     
-    self.navigationController = [[UINavigationController alloc]
-                                 initWithRootViewController:viewController];
+//    self.navigationController = [[UINavigationController alloc]
+//                                 initWithRootViewController:viewController];
+    
     self.window = [[UIWindow alloc]
                    initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.navigationController;
+    
+    self.window.rootViewController = tabBar;
 
 
     
