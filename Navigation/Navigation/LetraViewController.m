@@ -36,11 +36,11 @@
     textField.frame = CGRectMake(0, -150, 800, 800);
     
     next = [[UIBarButtonItem alloc]
-                             initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(next:)];
+            initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem=next;
-
+    
     back = [[UIBarButtonItem alloc]
-                             initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(back:)];
+            initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(back:)];
     self.navigationItem.leftBarButtonItem = back;
     
     
@@ -52,26 +52,19 @@
     
     done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
     
-     items = [NSArray arrayWithObjects:flexibleSpaceBarButtonItem, editar, flexibleSpaceBarButtonItem, done, flexibleSpaceBarButtonItem, nil];
+    items = [NSArray arrayWithObjects:flexibleSpaceBarButtonItem, editar, flexibleSpaceBarButtonItem, done, flexibleSpaceBarButtonItem, nil];
     
     self.toolbarItems = items;
     
     //    animaçao para aumentar a imagem
     UILongPressGestureRecognizer *pressionar = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(zoom: )];
     [imageView addGestureRecognizer:pressionar];
-
-//    animacao para ouvir reproduzir o texto
-//    UILongPressGestureRecognizer *pressionarText = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(touchesLabel:)];
-//    [imageView addGestureRecognizer:pressionarText];
     
     [done setEnabled:NO];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-
-
     [UIView beginAnimations:nil context:nil];
     
     [UIView setAnimationDuration:3];
@@ -80,14 +73,11 @@
     textField.frame = CGRectMake(30, 350, 300, 75);
     
     [UIView commitAnimations];
-
-    
-
 }
 
 #pragma mark - My Methods
 
--(void) prepararPagina:(int)pagina
+-(void) prepararPagina:(int)novaPagina
 {
     UIColor *colorA = [UIColor colorWithRed:(115.0/255.0) green:(202.0/255.0) blue:(227.0/255.0) alpha:1.0];
     UIColor *colorB= [UIColor colorWithRed:(125.0/255.0) green:(152.0/255.0) blue:(30.0/255.0) alpha:1.0];
@@ -115,107 +105,84 @@
     UIColor *colorX = [UIColor colorWithRed:(227.0/255.0) green:(216.0/255.0) blue:(4.0/255.0) alpha:1.0];
     UIColor *colorY = [UIColor colorWithRed:(195.0/255.0) green:(238.0/255.0) blue:(240.0/255.0) alpha:1.0];
     UIColor *colorZ = [UIColor colorWithRed:(64.0/255.0) green:(70.0/255.0) blue:(219.0/255.0) alpha:1.0];
-
+    
     NSMutableArray *color = [[NSMutableArray alloc] initWithObjects:colorA,
-                                                                    colorB,
-                                                                    colorC,
-                                                                    colorD,
-                                                                    colorE,
-                                                                    colorF,
-                                                                    colorG,
-                                                                    colorH,
-                                                                    colorI,
-                                                                    colorJ,
-                                                                    colorK,
-                                                                    colorL,
-                                                                    colorM,
-                                                                    colorN,
-                                                                    colorO,
-                                                                    colorP,
-                                                                    colorQ,
-                                                                    colorR,
-                                                                    colorS,
-                                                                    colorT,
-                                                                    colorU,
-                                                                    colorV,
-                                                                    colorW,
-                                                                    colorX,
-                                                                    colorY,
-                                                                    colorZ,nil];
-
+                             colorB,
+                             colorC,
+                             colorD,
+                             colorE,
+                             colorF,
+                             colorG,
+                             colorH,
+                             colorI,
+                             colorJ,
+                             colorK,
+                             colorL,
+                             colorM,
+                             colorN,
+                             colorO,
+                             colorP,
+                             colorQ,
+                             colorR,
+                             colorS,
+                             colorT,
+                             colorU,
+                             colorV,
+                             colorW,
+                             colorX,
+                             colorY,
+                             colorZ,nil];
+    
     textField = [[UITextField alloc] init];
-
+    
     dictionary = [[Dictionary alloc] init];
     [dictionary iniciandoBancoDados];
-//    [dictionary initPage];
     
-    realm = [dictionary buscaObjetoBancoDadosWithPage:pagina];
+    Pagina *p = [dictionary buscaObjetoBancoDadosWithPage:novaPagina];
     
-    for(int i = 0; i < [realm count]; i++){
-        Pagina *obj = [realm objectAtIndex:i];
-        
-        self.title = obj.letter;
-        image = [UIImage imageNamed:obj.image];
-        NSString *texto = obj.text;
-        [textField setText:texto];
-        [self.view setBackgroundColor: [color objectAtIndex:pagina] ];
-    }
-    
-    
-    
-    //    alfabeto
-//    self.title = [dictionary getLetterWithPage:pagina];
+    self.title = p.letter;
+    image = [UIImage imageNamed:p.image];
+    NSString *texto = p.text;
+    [textField setText:texto];
+    [self.view setBackgroundColor: [color objectAtIndex:novaPagina] ];
     
     //    imagem
     imageView = [[UIImageView alloc] init] ;
-//    image = [UIImage imageNamed:[ dictionary getImageWithPage:pagina]];
     imageView.image = image;
     imageView.userInteractionEnabled = YES;
     [self.view addSubview:imageView];
     
     //    text
-//    textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 300, 75)];
-//    [textField setText:[dictionary getTextWithPage:pagina]];
     [textField setTextAlignment:NSTextAlignmentCenter];
     textField.font = [UIFont fontWithName:@"Zapfino" size:20];
     
     [textField setEnabled: NO];
     [self.view addSubview:textField];
-
+    
 }
 
--(void)next:(id)sender {
-    
+-(void)next:(id)sender
+{
     LetraViewController *proximo = [[LetraViewController alloc]
-                                     initWithNibName:nil
-                                     bundle:NULL];
+                                    initWithNibName:nil
+                                    bundle:NULL];
     
     [proximo setPagina:pagina+1];
     [self.navigationController pushViewController:proximo
                                          animated:YES];
-//    [next setEnabled:YEs];
-    
 }
 
--(void) back:(id)sender{
-//    LetraViewController *anterior = [[LetraViewController alloc] initWithNibName:nil bundle:NULL];
-//    pagina--;
-//    [anterior prepararPagina:pagina];
+-(void) back:(id)sender
+{
     [self.navigationController popViewControllerAnimated:YES];
     [back setEnabled:YES];
 }
 
--(void) editar:(id)sender{
-    
+-(void) editar:(id)sender
+{
     [editar setEnabled: NO];
     [textField setEnabled:YES];
     [done setEnabled:YES];
-    
-    
-//    EditarViewController *editar = [[EditarViewController alloc] init];
-//    
-//    [editar setPagina:pagina];
-//    [self.navigationController pushViewController:editar animated:YES];
 }
 
 -(void) done:(id)sender{
@@ -223,27 +190,11 @@
     [done setEnabled:NO];
     [textField setEnabled:NO];
     
-    
-    Pagina *resultado = [dictionary buscaObjetoBancoDadosWithPage:pagina];
-//
-//    NSString *letra = [resultado letter];
-//    
-//    
-//    Pagina *novaPagina = [[Pagina alloc]init];
-//    
-//    novaPagina.letter = resultado.letter;
-//    novaPagina.image = resultado.image;
-//    novaPagina.text = [textField text];
-//
-    
+//    Pagina *resultado = [dictionary buscaObjetoBancoDadosWithPage:pagina];
     [dictionary alteraObjetoBancoDadosWithPage:pagina andWithText:[textField text]];
-        
-//        [_realm beginWriteTransaction];
-////        obj.text = [textField text];
-//
-//        [_realm commitWriteTransaction];
-    
-    }
+}
+
+
 
 #pragma mark - interatividade
 
@@ -285,33 +236,5 @@
         }];
     }
 }
-
-
-//-(void) touchesLabel:(UILongPressGestureRecognizer *)sender{
-//
-//    if (sender.state == UIGestureRecognizerStateBegan) {
-//        [UIView animateWithDuration:0.4 animations:^{
-//            AVSpeechSynthesizer *speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
-//            AVSpeechUtterance *speechUteerance = [AVSpeechUtterance speechUtteranceWithString:[dictionary getTextDataBasesWithPage:pagina]];
-//            [speechUteerance setPitchMultiplier:1.15f];
-//            speechUteerance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"pt-BR"];
-//            [speechUteerance setRate:0.03f];
-//            [speechSynthesizer speakUtterance:speechUteerance];
-//            
-//        }];
-//    }else{
-//        NSLog(@"TESTE");
-//    }
-//}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

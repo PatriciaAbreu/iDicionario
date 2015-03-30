@@ -15,7 +15,6 @@
 @interface LetraViewController : UIViewController
 
 @property (nonatomic) int pagina;
-@property RLMRealm *realm;
 @property BOOL imagemTocada;
 
 -(void)prepararPagina:(int) pagina;

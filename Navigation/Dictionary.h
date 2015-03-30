@@ -11,17 +11,6 @@
 #import "Pagina.h"
 
 @interface Dictionary : NSObject
-//@property NSMutableArray *letter;
-//@property NSMutableArray *image;
-//@property NSMutableArray *text;
-//@property RLMRealm *realm;
-
-//-(void) initPage;
-//-(NSString *) getLetterWithPage:(int)page;
-//-(NSString *) getImageWithPage:(int)page;
-//-(NSString *) getTextWihPage:(int)page;
-//-(int) getNumberOfLetters;
-//-(void)setText:(NSString *)text withPage:(int)page;
 
 -(void)iniciandoBancoDados;
 -(Pagina *)buscaObjetoBancoDadosWithPage:(int)page;

@@ -12,46 +12,6 @@
 
 @implementation Dictionary
 
-#pragma mark - Construtor
-//
-//-(void) initPage
-//{
-//    _letter = [[NSMutableArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil ];
-//    
-//    _image = [[NSMutableArray alloc] initWithObjects:@"alice", @"ben10", @"cebolinha", @"dumbo", @"elza", @"fiona", @"galinhaPintadinha", @"huguinho", @"iara", @"jerry", @"kiara", @"luizinho", @"mickeyMouse", @"nemo", @"olaf", @"pocahontas", @"quinzinho", @"reiLeao", @"sininho", @"tom", @"ursinhoPooh", @"viscondeSabugosa", @"wood", @"xaveco", @"yasmin", @"zezinho", nil];
-//    
-//    _text =[[NSMutableArray alloc] initWithObjects:@"Alice", @"Ben 10", @"Cebolinha", @"Dumbo", @"Elza", @"Fiona", @"Galinha Pintadinha", @"Huguinho", @"Iara", @"Jerry", @"Kiara", @"Luizinho", @"Mickey Mouse", @"Nemo", @"Olaf", @"Pocahontas", @"Quinzinho", @"Rei Leão", @"Sininho", @"Tom", @"Ursinho Pooh", @"Visconde de Sabugosa", @"Wood", @"Xaveco", @"Yasmin", @"Zezinho", nil];
-//}
-//
-//#pragma mark - Gets
-//
-//-(NSString *)getLetterWithPage:(int)page
-//{
-//    return [_letter objectAtIndex:page];
-//}
-//
-//-(NSString *) getImageWithPage:(int)page
-//{
-//    return [_image objectAtIndex:page];
-//}
-//
-//-(NSString *) getTextWithPage:(int)page
-//{
-//    return [_text objectAtIndex:page];
-//    NSLog([@"%@ classe", _text objectAtIndex:page]);
-//}
-//
-//#pragma mark - Sets
-//
-//-(void)setText:(NSString *)text withPage:(int)page{
-//    NSLog([_text objectAtIndex:page]);
-//    [_text replaceObjectAtIndex:page withObject:text];
-//    NSLog([_text objectAtIndex:page]);
-//}
-//
-//-(int) getNumberOfLetters{
-//    return (int) _letter.count;
-//}
 
 #pragma mark - Persistencia de dados
 
@@ -94,11 +54,7 @@
             //    termina transicao
             [realm commitWriteTransaction];
         }
-
     }
-    
-    
-
 }
 
 -(Pagina *)buscaObjetoBancoDadosWithPage:(int)page
@@ -110,7 +66,7 @@
         return nil;
     
     Pagina *resultado = [[Pagina alloc] init];
-    resultado = (Pagina *) results;
+    resultado = (Pagina *)[results lastObject];
     return resultado;
 }
 
