@@ -229,6 +229,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Vinicius Miana";
 				TargetAttributes = {
+					27156F4818B76AF50053A99C = {
+						DevelopmentTeam = 9CR59M86PD;
+					};
 					27156F6318B76AF50053A99C = {
 						TestTargetID = 27156F4818B76AF50053A99C;
 					};
