@@ -166,7 +166,9 @@
     LetraViewController *proximo = [[LetraViewController alloc]
                                     initWithNibName:nil
                                     bundle:NULL];
-    
+    if (pagina == 25) {
+        pagina = -1;
+    }
     [proximo setPagina:pagina+1];
     [self.navigationController pushViewController:proximo
                                          animated:YES];
