@@ -185,13 +185,14 @@
     [done setEnabled:YES];
 }
 
--(void) done:(id)sender{
+-(void) done:(id)sender
+{
     [editar setEnabled: YES];
     [done setEnabled:NO];
     [textField setEnabled:NO];
     
-//    Pagina *resultado = [dictionary buscaObjetoBancoDadosWithPage:pagina];
     [dictionary alteraObjetoBancoDadosWithPage:pagina andWithText:[textField text]];
+
 }
 
 

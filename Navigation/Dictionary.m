@@ -72,17 +72,11 @@
 
 
 -(void)alteraObjetoBancoDadosWithPage:(int)page andWithText:(NSString *)text {
-    
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"number == %i",page];
-    RLMResults *results = [Pagina objectsWithPredicate:pred];
-    
+   
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
+    Pagina *update = [self buscaObjetoBancoDadosWithPage:page];
     
-    Pagina *update = [[Pagina alloc] init];
-    
-    update.letter = [results.firstObject letter];
-    update.image = (NSString *)[results.firstObject image];
     update.text = text;
     
     [realm commitWriteTransaction];
