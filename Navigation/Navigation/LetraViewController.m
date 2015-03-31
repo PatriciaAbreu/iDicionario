@@ -61,6 +61,7 @@
     [imageView addGestureRecognizer:pressionar];
     
     [done setEnabled:NO];
+    [next setEnabled:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -74,6 +75,7 @@
     
     [UIView commitAnimations];
 }
+
 
 #pragma mark - My Methods
 
@@ -163,6 +165,8 @@
 
 -(void)next:(id)sender
 {
+    [next setEnabled:NO];
+    
     LetraViewController *proximo = [[LetraViewController alloc]
                                     initWithNibName:nil
                                     bundle:NULL];
