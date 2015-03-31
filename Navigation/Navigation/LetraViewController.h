@@ -12,7 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-@interface LetraViewController : UIViewController
+@interface LetraViewController : UIViewController<UITextFieldDelegate>
 
 @property (nonatomic) int pagina;
 @property BOOL imagemTocada;

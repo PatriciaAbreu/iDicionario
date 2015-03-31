@@ -62,6 +62,7 @@
     
     [done setEnabled:NO];
     [next setEnabled:YES];
+    textField.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -166,7 +167,6 @@
 -(void)next:(id)sender
 {
     [next setEnabled:NO];
-    
     LetraViewController *proximo = [[LetraViewController alloc]
                                     initWithNibName:nil
                                     bundle:NULL];
@@ -188,7 +188,9 @@
 {
     [editar setEnabled: NO];
     [textField setEnabled:YES];
+    [textField becomeFirstResponder];
     [done setEnabled:YES];
+    
 }
 
 -(void) done:(id)sender
@@ -201,6 +203,11 @@
 
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)tF
+{
+    [tF resignFirstResponder];
+    return YES;
+}
 
 
 #pragma mark - interatividade
